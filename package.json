@@ -1,0 +1,23 @@
+{
+  "name": "crunchy-bot",
+  "version": "1.0.0",
+  "description": "Bot dev by Spartix for Spyrix",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spartixx/crunchy-bot.git"
+  },
+  "author": "Spartix",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Spartixx/crunchy-bot/issues"
+  },
+  "homepage": "https://github.com/Spartixx/crunchy-bot#readme",
+  "dependencies": {
+    "discord.js": "^13.0.0",
+    "discord-akairo": "github:SkyBlockDev/discord-akairo"
+  }
+}
