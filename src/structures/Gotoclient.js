@@ -1,3 +1,4 @@
+const { embed } = require('../utile/functions');
 const { AkairoClient, CommandHandler, ListenerHandler }  = require('discord-akairo');
 
 module.exports = class GotoClient extends AkairoClient {
@@ -34,6 +35,10 @@ module.exports = class GotoClient extends AkairoClient {
         this.listenerHandler = new ListenerHandler(this, {
             directory: './src/listeners/'
         });
+
+        this.functions = {
+            embed: embed
+        }
 
         this.CommandHandler.loadAll()
         this.CommandHandler.useListenerHandler(this.listenerHandler);
