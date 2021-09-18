@@ -23,9 +23,15 @@ class UserInfoCommand extends Command {
     }
 
     exec(message, args) {
-        return message.channel.send({embed: [
-            this.client.functions.embed()
-            .setTitle("***Voici les infos de l'utilisateur :***")
+        return message.channel.send({ embeds: [ 
+            this.client.functions.embed() 
+                .setTitle(`***Voici quelques infos sur ${args.member.displayName} :***`)
+                .setFooter(`ID : ${args.member.id}`)
+                .setThumbnail(`${args.member.user.displayAvatarURL()}`)
+                .addFields(
+                    {name: 'Création du compte :', value: `Le ${args.member.user.createdAt}`, inline: true},
+                    {name: 'Membre depuis :', value: `Le ${args.member.joinedAt}`, inline: true}
+                )
         ]})
     }
 }
