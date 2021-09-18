@@ -1,4 +1,4 @@
-const { AkairoClient, CommandHandler }  = require('discord-akairo');
+const { AkairoClient, CommandHandler, ListenerHandler }  = require('discord-akairo');
 
 module.exports = class GotoClient extends AkairoClient {
     constructor(config = {}){
@@ -29,8 +29,14 @@ module.exports = class GotoClient extends AkairoClient {
             prefix: config.prefix,
             defaultCooldown: 3000,
             directory: './src/commands/'
-        })
+        });
+
+        this.listenerHandler = new ListenerHandler(this, {
+            directory: './src/listeners/'
+        });
 
         this.CommandHandler.loadAll()
+        this.CommandHandler.useListenerHandler(this.listenerHandler);
+        this.listenerHandler.loadAll();
     }
 }
