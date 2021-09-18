@@ -1,1 +1,1 @@
-Bot by Spartix for Spyrix.
+Bot by Spartix ( Multi-Tâche + génération ).

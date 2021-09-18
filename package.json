@@ -1,7 +1,7 @@
 {
   "name": "crunchy-bot",
   "version": "1.0.0",
-  "description": "Bot dev by Spartix for Spyrix",
+  "description": "Bot Multi-Tâche + gen",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/Spartixx/crunchy-bot#readme",
   "dependencies": {
+    "discord-akairo": "github:SkyBlockDev/discord-akairo",
     "discord.js": "^13.0.0",
-    "discord-akairo": "github:SkyBlockDev/discord-akairo"
+    "lowdb": "^3.0.0"
   }
 }
