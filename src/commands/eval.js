@@ -1,4 +1,5 @@
 const { Command } = require('discord-akairo');
+const { PREFIX } = require('../../config');
 
 const clean = text => {
   if (typeof (text) === "string")
@@ -10,8 +11,13 @@ const clean = text => {
 module.exports = class EvalCommand extends Command {
   constructor() {
     super('eval', {
-      aliases: ['eval'],
-      category: 'dev',
+      aliases: ['eval', 'cal', 'calc', 'calculate'],
+      category: 'Dev',
+      description: {
+        content: 'La commande eval permet de faire des calculs et exécuter de petits programmes via discord !',
+        usages: `${PREFIX}eval`,
+        raccourcis: 'eval, cal, calc, calculate'
+    },
       ownerOnly: true,
       args: [
         {

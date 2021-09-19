@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Spartixx/crunchy-bot#readme",
   "dependencies": {
+    "common-tags": "^1.8.0",
     "discord-akairo": "github:SkyBlockDev/discord-akairo",
     "discord.js": "^13.0.0",
     "lowdb": "^3.0.0"
