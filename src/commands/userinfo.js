@@ -7,7 +7,7 @@ class UserInfoCommand extends Command {
         super('userinfo', {
            aliases: ['userinfo', 'info', 'userinfos', 'infos'],
            description: {
-            content: '***La commande UserInfo permet de voir quelques informations sur un utilisateur !***',
+            content: 'La commande UserInfo permet de voir quelques informations sur un utilisateur !',
             usages: `${PREFIX}userinfo | ${PREFIX}userinfo @membre`,
             raccourcis: 'userinfo, userinfos, infos, info'
         },

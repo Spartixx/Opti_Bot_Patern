@@ -6,7 +6,7 @@ class TestCommand extends Command {
         super('test', {
            aliases: ['test', 't'],
            description: {
-            content: '***La commande Test permet d\'effectuer des test sur le bot !***',
+            content: 'La commande Test permet d\'effectuer des test sur le bot !',
             usages: `${PREFIX}test`,
             raccourcis: 'test, t'
         },

@@ -9,7 +9,7 @@ class HelpCommand extends Command {
            aliases: ['help', 'aide', ' '],
            category: 'Misc',
            description: {
-               content: '***La commande Help renvoie la liste de commandes du bot !***',
+               content: 'La commande Help renvoie la liste de commandes du bot !',
                usages: `${PREFIX}help`,
                raccourcis: 'help, aide'
            },

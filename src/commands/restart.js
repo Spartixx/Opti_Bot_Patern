@@ -6,7 +6,7 @@ class RestartCommand extends Command {
         super('restart', {
            aliases: ['restart', 'rs'],
            description: {
-            content: '***La commande Restart permet de redémarrer le bot depuis discord !***',
+            content: 'La commande Restart permet de redémarrer le bot depuis discord !',
             usages: `${PREFIX}restart`,
             raccourcis: 'restart, rs'
         },
