@@ -30,13 +30,12 @@ class SayCommand extends Command {
     exec(message, args) {
         let msg = message.content.split(' ');
         let number = parseInt(msg[1]);
-        message.delete()
-        if(isNaN(number)){
-            return message.reply(`${msg[1]} n'est pas un nombre !`)
-        }else if(msg[1] === undefined){
-            return message.reply('Nombre de messages non ou mal défini !')
+        if(msg.length === 1){
+            return message.reply('***Veuillez entrer le nombre de messages à supprimer !***')
+        }else if(isNaN(msg[1])){
+            return message.reply(`***${msg[1]} n'est pas un nombre !***`)
         }else{
-            message.channel.bulkDelete(number).then(message.channel.send(`${msg[1]} ont été supprimé !`))
+            message.channel.bulkDelete(number).then(message.channel.send(`***__${msg[1]}__ messages ont été supprimé !***`))
         }
     }
 }
