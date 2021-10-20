@@ -2,10 +2,10 @@ const { Command } = require('discord-akairo');
 const { PREFIX } = require('../../config');
 
 
-class SayCommand extends Command {
+class ClearCommand extends Command {
     constructor() {
         super('clear', {
-           aliases: ['clear', 'del', 'delete'],
+           aliases: ['clear', 'del'],
            description: {
             content: 'La commande clear permet de supprimer des messages !',
             usages: `${PREFIX}clear <nb>`,
@@ -40,4 +40,4 @@ class SayCommand extends Command {
     }
 }
 
-module.exports = SayCommand;
+module.exports = ClearCommand;
