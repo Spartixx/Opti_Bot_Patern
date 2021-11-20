@@ -11,7 +11,7 @@ class ClearCommand extends Command {
             usages: `${PREFIX}clear <nb>`,
             raccourcis: 'clear, del, delete'
         },
-           category: 'Dev',
+           category: 'Modération',
            ignoreCooldown: '831835872625295390',
            ignorePermissions: '831835872625295390',
            userPermissions: 'SEND_MESSAGES',

@@ -43,11 +43,11 @@ module.exports = class GotoClient extends AkairoClient {
         }
     }
 
-        init(){
+        async init(){
             this.CommandHandler.useListenerHandler(this.listenerHandler);
-            this.CommandHandler.loadAll()
+            await this.CommandHandler.loadAll()
             console.log(`Commandes -> ${this.CommandHandler.modules.size}`)
-            this.listenerHandler.loadAll();
+            await this.listenerHandler.loadAll();
             console.log(`Listeners -> ${this.listenerHandler.modules.size}`)
     }
 
