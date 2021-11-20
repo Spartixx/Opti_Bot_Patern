@@ -1,21 +1,21 @@
 {
-  "name": "crunchy-bot",
+  "name": "opti_bot_patern",
   "version": "1.0.0",
-  "description": "Bot Multi-Tâche + gen",
+  "description": "Bot by Spartix ( Modération, jeux, liens twitch, logs etc... ).",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Spartixx/crunchy-bot.git"
+    "url": "git+https://github.com/Spartixx/Opti_Bot_Patern.git"
   },
   "author": "Spartix",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Spartixx/crunchy-bot/issues"
+    "url": "https://github.com/Spartixx/Opti_Bot_Patern/issues"
   },
-  "homepage": "https://github.com/Spartixx/crunchy-bot#readme",
+  "homepage": "https://github.com/Spartixx/Opti_Bot_Patern#readme",
   "dependencies": {
     "common-tags": "^1.8.0",
     "discord-akairo": "github:SkyBlockDev/discord-akairo",
