@@ -8,8 +8,22 @@ class GuildMemberAddListener extends Listener {
         });
     }
 
-    exec(member) {
-        console.log(`Salut à tous je suis ${member.id} !`);
+    async exec(member) {
+        let join_channel = this.client.channels.cache.get('910998444313837659')
+        let pseudo = `${'```'}\n${member.user.tag}${'```'}`
+        let membres = `${'```'}\n${member.guild.memberCount.toLocaleString()}${'```'}`
+
+        member.roles.add('910278872094875689')
+
+        const embed = this.client.functions.embed()
+            .setTitle('👋 ***Un nouveau membre est arrivé !*** 👋')
+            .addField('🤖 Pseudo : 🤖', pseudo, true)
+            .addField('📈 membres : 📈', membres, true)
+            .setImage(member.user.displayAvatarURL())
+
+        await join_channel.send({embeds: [embed]})
+        .then(() => console.log(`guildMemberAdd --> Message envoyé pour ${member.user.tag}`))
+        .catch(() => console.log(`guildMemberAdd --> Message /non/ envoyé pour ${member.user.tag}`))
     }
 }
 
