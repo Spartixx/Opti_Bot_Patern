@@ -1,4 +1,5 @@
 const { Listener } = require('discord-akairo');
+const moment = require('moment');
 
 class GuildMemberAddListener extends Listener {
     constructor() {
@@ -22,8 +23,8 @@ class GuildMemberAddListener extends Listener {
             .setImage(member.user.displayAvatarURL())
 
         await join_channel.send({embeds: [embed]})
-        .then(() => console.log(`guildMemberAdd --> Message envoyé pour ${member.user.tag}`))
-        .catch(() => console.log(`guildMemberAdd --> Message /non/ envoyé pour ${member.user.tag}`))
+        .then(() => console.log(`${moment().format('LTS')} : guildMemberAdd --> Message envoyé pour ${member.user.tag}`))
+        .catch(() => console.log(`${moment().format('LTS')} : guildMemberAdd --> Message /non/ envoyé pour ${member.user.tag}`))
     }
 }
 

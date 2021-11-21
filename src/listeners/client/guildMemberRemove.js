@@ -1,4 +1,5 @@
 const { Listener } = require('discord-akairo');
+const moment = require('moment');
 
 class guildMemberRemoveListener extends Listener {
     constructor() {
@@ -22,8 +23,8 @@ class guildMemberRemoveListener extends Listener {
             .setImage(member.user.displayAvatarURL())
 
         await leave_channel.send({embeds: [embed]})
-        .then(() => console.log(`guildMemberRemove --> Message envoyé pour ${member.user.tag}`))
-        .catch(() => console.log(`guildMemberRemove --> Message /non/ envoyé pour ${member.user.tag}`))
+        .then(() => console.log(`${moment().format('LTS')} : guildMemberRemove --> Message envoyé pour ${member.user.tag}`))
+        .catch(() => console.log(`${moment().format('LTS')} : guildMemberRemove --> Message /non/ envoyé pour ${member.user.tag}`))
     }
 }
 

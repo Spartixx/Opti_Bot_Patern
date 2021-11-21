@@ -1,5 +1,6 @@
 const { Command } = require('discord-akairo');
 const { PREFIX } = require('../../config');
+const moment = require('moment');
 
 
 class BanCommand extends Command {
@@ -51,8 +52,8 @@ class BanCommand extends Command {
         .setImage(member.user.displayAvatarURL())
 
     await ban_channel.send({embeds: [embed]})
-    .then(() => console.log(`Ban --> Message envoyé pour ${member.user.tag}`))
-    .catch(() => console.log(`Ban --> Message /non/ envoyé pour ${member.user.tag}`))
+    .then(() => console.log(`${moment().format('LTS')} : Ban --> Message envoyé pour ${member.user.tag}`))
+    .catch(() => console.log(`${moment().format('LTS')} : Ban --> Message /non/ envoyé pour ${member.user.tag}`))
     }
 }
 

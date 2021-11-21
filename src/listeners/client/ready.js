@@ -1,4 +1,5 @@
 const { Listener } = require('discord-akairo');
+const moment = require('moment');
 
 class ReadyListener extends Listener {
     constructor() {
@@ -9,7 +10,7 @@ class ReadyListener extends Listener {
     }
 
     exec() {
-        console.log('Bot Opérationel !');
+        console.log(`${moment().format('LTS')} : Bot Opérationel !`);
     }
 }
 
