@@ -32,14 +32,19 @@ class BanCommand extends Command {
     async exec(message, { member, reason }) {
 
         let args = message.content.split(' ')
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('911927775567425557')
         const pseudo = `${'```'}\n ${member.user.tag} ${'```'}`;
         const identifiant = `${'```'}\n ${member.user.id} ${'```'}`;
         const ban_reason = `${'```'}\n ${reason} ${'```'}`;
         const ban_channel = this.client.channels.cache.get('911719516050960414');
 
         if(!reason) reason = "Raison non spécifiée.";
+        if(member.id === "845741568388366366"){
+            return message.reply('***Je n\'est pas la permission de bannir cette personne !***')
+        }
         if(args[2] > 7) args[2] = 7, message.reply('Le nombre de jours maximum définis par discord est 7, le nombre de jours à donc été changé pour 7.')
-        member ? member.ban({days: args[2], reason: args[3]}) : message.reply('***l\'utilisateur n\'existe pas !***');
+        else{
+        member ? member.ban({days: args[2], reason: args[3]}) : message.reply('***l\'utilisateur n\'existe pas !***');}
 
         const ban_duration = `${'```'}\n ${args[2]} jours ${'```'}`;
 
@@ -52,7 +57,7 @@ class BanCommand extends Command {
         .setImage(member.user.displayAvatarURL())
 
     await ban_channel.send({embeds: [embed]})
-    .then(() => console.log(`${moment().format('LTS')} : Ban --> Message envoyé pour ${member.user.tag}`))
+    .then(() => console.log(`${moment().format('LTS')} : Ban --> Message envoyé pour ${member.user.tag}`)).then(() => CONSOLE_LOG_CHANNEL.send(`${'```'}\n${moment().format('LTS')} : Ban --> Message envoyé pour ${member.user.tag} ${'```'}`))
     .catch(() => console.log(`${moment().format('LTS')} : Ban --> Message /non/ envoyé pour ${member.user.tag}`))
     }
 }

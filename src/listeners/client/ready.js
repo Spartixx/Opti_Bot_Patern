@@ -10,7 +10,10 @@ class ReadyListener extends Listener {
     }
 
     exec() {
-        console.log(`${moment().format('LTS')} : Bot Opérationel !`);
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('911927775567425557')
+        console.log(`${moment().format('LTS')} : Bot Opérationel !`)
+        CONSOLE_LOG_CHANNEL.send(`${'```'}\n${moment().format('LTS')} : Bot Démarré avec succès ! ${'```'}`);
+
     }
 }
 

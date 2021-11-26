@@ -11,6 +11,7 @@ class guildMemberRemoveListener extends Listener {
 
     async exec(member) {
         let leave_channel = this.client.channels.cache.get('910998531177865257')
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('911927775567425557')
         let pseudo = `${'```'}\n${member.user.tag}${'```'}`
         let membres = `${'```'}\n${member.guild.memberCount.toLocaleString()}${'```'}`
         let member_id = `${'```'}\nid : ${member.user.id}${'```'}`
@@ -23,7 +24,7 @@ class guildMemberRemoveListener extends Listener {
             .setImage(member.user.displayAvatarURL())
 
         await leave_channel.send({embeds: [embed]})
-        .then(() => console.log(`${moment().format('LTS')} : guildMemberRemove --> Message envoyé pour ${member.user.tag}`))
+        .then(() => console.log(`${moment().format('LTS')} : guildMemberRemove --> Message envoyé pour ${member.user.tag}`)).then(() => CONSOLE_LOG_CHANNEL.send(`${'```'}\n${moment().format('LTS')} : guildMemberRemove --> Message envoyé pour ${member.user.tag} ${'```'}`))
         .catch(() => console.log(`${moment().format('LTS')} : guildMemberRemove --> Message /non/ envoyé pour ${member.user.tag}`))
     }
 }

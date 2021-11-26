@@ -1,6 +1,7 @@
 const { embed } = require('../utile/functions');
 const { AkairoClient, CommandHandler, ListenerHandler }  = require('discord-akairo');
 const { TOKEN, MONGOSTRING } = require('../../config');
+const { GuildsProvider } = require('../structures/Providers')
 const mongoose = require('mongoose');
 
 module.exports = class GotoClient extends AkairoClient {
@@ -19,7 +20,7 @@ module.exports = class GotoClient extends AkairoClient {
                         {
                             name: 'Spartix#0001',
                             type: 'PLAYING',
-                            url: 'https://github.com/Spartixx/crunchy-bot'
+                            url: 'https://github.com/Spartixx/Opti_Bot_Patern'
                         }
                     ]
                 },
@@ -29,7 +30,11 @@ module.exports = class GotoClient extends AkairoClient {
 
         this.CommandHandler = new CommandHandler(this, {
             allowMention: true, 
-            prefix: config.prefix,
+            prefix: async message =>{
+                const guild_prefix = await this.guildSettings.get(message.guild);
+                if(guild_prefix) return guild_prefix.prefix;
+                return config.prefix;
+            },
             defaultCooldown: 3000,
             directory: './src/commands/'
         });
@@ -41,7 +46,9 @@ module.exports = class GotoClient extends AkairoClient {
         this.functions = {
             embed: embed
         }
+        this.guildSettings = new GuildsProvider();
     }
+    
 
         async init(){
             this.CommandHandler.useListenerHandler(this.listenerHandler);

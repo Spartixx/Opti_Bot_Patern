@@ -27,8 +27,9 @@ class HelpCommand extends Command {
         });
     }
 
-    exec(message, args) {
+    async exec(message, args) {
         const command = args.command;
+        const prefix = await this.handler.prefix(message);
 
         if(!command){
             let embed = this.client.functions.embed()
@@ -47,7 +48,7 @@ class HelpCommand extends Command {
 
             embed.addField(
                 '**----------------------------------------------**',
-                `\`${PREFIX}help <commande>\` **Pour des infos ciblées sur la commande.**`
+                `\`${prefix}help <commande>\` **Pour des infos ciblées sur la commande.**`
             )
 
 
@@ -56,7 +57,7 @@ class HelpCommand extends Command {
 
         return message.channel.send({ embeds: [ 
             this.client.functions.embed() 
-                .setTitle(`***Voici quelques infos sur la commande ${PREFIX}${command.aliases[0]}:***`)
+                .setTitle(`***Voici quelques infos sur la commande ${prefix}${command.aliases[0]}:***`)
                 .setDescription(`\`Utilité :\` ${command.description.content}\n\`Utilisation :\` ${command.description.usages}\n\`Raccourcis :\` ${command.description.raccourcis}`)
         ]})
     }

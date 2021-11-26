@@ -4,7 +4,7 @@ const guildShema = Schema({
     id: String,
     prefix: {
         type: String,
-        default: '.'
+        default: '/'
     }
 })
 
