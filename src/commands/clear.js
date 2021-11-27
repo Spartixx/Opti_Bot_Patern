@@ -15,7 +15,7 @@ class ClearCommand extends Command {
            ignoreCooldown: '831835872625295390',
            ignorePermissions: '831835872625295390',
            userPermissions: 'MANAGE_MESSAGES',
-           clientPermissions: 'SEND_MESSAGES',
+           clientPermissions: 'MANAGE_MESSAGES',
            ratelimit: 2,
            cooldown: 3000,
            typing: true,

@@ -11,6 +11,15 @@ class LatenceCommand extends Command {
             raccourcis: 'latence, ping, ms, l'
         },
            category: 'Misc',
+           ignoreCooldown: '831835872625295390',
+           ignorePermissions: '831835872625295390',
+           userPermissions: 'SEND_MESSAGES',
+           clientPermissions: 'SEND_MESSAGES',
+           ratelimit: 2,
+           cooldown: 3000,
+           typing: true,
+           ownerOnly: false,
+           channel: 'guild',
         });
     }
 

@@ -11,6 +11,15 @@ class TwitchCommand extends Command {
             raccourcis: 'twitch, tw'
         },
            category: 'Modération',
+           ignoreCooldown: '831835872625295390',
+           ignorePermissions: '831835872625295390',
+           userPermissions: 'ADMINISTRATOR',
+           clientPermissions: 'ADMINISTRATOR',
+           ratelimit: 2,
+           cooldown: 3000,
+           typing: true,
+           ownerOnly: false,
+           channel: 'guild',
         });
     }
 
