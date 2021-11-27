@@ -1,5 +1,6 @@
 const { Command } = require('discord-akairo');
 const { PREFIX } = require('../../config');
+const moment = require('moment');
 
 
 class ClearCommand extends Command {
@@ -34,10 +35,16 @@ class ClearCommand extends Command {
             return message.reply('***Veuillez entrer le nombre de messages à supprimer !***')
         }else if(isNaN(msg[1])){
             return message.reply(`***${msg[1]} n'est pas un nombre !***`)
+        }else if(number > 99){
+            return message.reply(`Il faut spécifier un **nombre** entre 1 et 100 !`)
+        }else if(number.deletable == false){
+            message.reply('Non.')
         }else{
-            message.channel.bulkDelete(number).then(message.channel.send(`***__${msg[1]}__ messages ont été supprimé !***`))
+            message.channel.bulkDelete(number).then(message.channel.send(`***__${msg[1]}__ messages ont été supprimé !***`)).catch(err => {
+                console.log(err), message.reply('Il y a des messages trop vieux :/')
+            })
         }
-    }
+    }   
 }
 
 module.exports = ClearCommand;
