@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Spartixx/Opti_Bot_Patern#readme",
   "dependencies": {
+    "axios": "^0.24.0",
     "common-tags": "^1.8.0",
     "discord-akairo": "github:SkyBlockDev/discord-akairo",
     "discord-music-system": "^3.3.15",
@@ -28,6 +29,6 @@
     "mysql": "^2.18.1",
     "nekobot-api": "^2.1.0",
     "node-fetch": "^3.1.0",
-    "pornsearch": "^2.4.3"
+    "pornsearch": "^0.3.1"
   }
 }
