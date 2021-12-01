@@ -8,7 +8,7 @@ class RealBoobsCommand extends Command {
         super('boobs', {
            aliases: ['boobs', 'seins'],
            description: {
-            content: 'La commande boobs permet d\'envoyer une image d\'hentai',
+            content: 'La commande boobs permet d\'envoyer une image -18',
             usages: `${PREFIX}boobs`,
             raccourcis: 'boobs, seins'
         },

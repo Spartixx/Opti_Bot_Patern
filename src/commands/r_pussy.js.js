@@ -8,7 +8,7 @@ class RealPussyCommand extends Command {
         super('pussy', {
            aliases: ['pussy'],
            description: {
-            content: 'La commande pussy permet d\'envoyer une image d\'hentai',
+            content: 'La commande pussy permet d\'envoyer une image -18',
             usages: `${PREFIX}pussy`,
             raccourcis: 'pussy'
         },

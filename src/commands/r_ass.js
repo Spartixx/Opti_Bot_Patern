@@ -8,7 +8,7 @@ class RealAssCommand extends Command {
         super('ass', {
            aliases: ['ass', 'cul'],
            description: {
-            content: 'La commande ass permet d\'envoyer une image d\'hentai',
+            content: 'La commande ass permet d\'envoyer une image -18',
             usages: `${PREFIX}ass`,
             raccourcis: 'ass, cul'
         },

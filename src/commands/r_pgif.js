@@ -8,7 +8,7 @@ class RealPorngifCommand extends Command {
         super('porngif', {
            aliases: ['porngif', 'pgif'],
            description: {
-            content: 'La commande porngif permet d\'envoyer une image d\'hentai',
+            content: 'La commande porngif permet d\'envoyer une image -18',
             usages: `${PREFIX}porngif`,
             raccourcis: 'porngif, pgif'
         },

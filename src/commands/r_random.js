@@ -3,14 +3,14 @@ const { PREFIX } = require('../../config');
 const fetch = import('node-fetch');
 const moment = require('moment');
 
-class RealQuatre4Command extends Command {
+class RealAssCommand extends Command {
     constructor() {
-        super('4k', {
-           aliases: ['4k'],
+        super('prandom', {
+           aliases: ['prandom'],
            description: {
-            content: 'La commande 4k permet d\'envoyer une image -18',
-            usages: `${PREFIX}4k`,
-            raccourcis: '4k'
+            content: 'La commande prandom permet d\'envoyer une image -18',
+            usages: `${PREFIX}prandom`,
+            raccourcis: 'prandom'
         },
            category: 'API',
            ignoreCooldown: '831835872625295390',
@@ -29,18 +29,18 @@ class RealQuatre4Command extends Command {
         let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
         const { NekoBot } = require("nekobot-api");
         const api = new NekoBot();
-        
-            const quatrek = await api.get("4k");
+
+            const prandom = await api.get("gonewild");
             message.channel.send({ embeds: [ 
                 this.client.functions.embed() 
                     .setTitle(`***Voici votre image !***`)
-                    .setURL(quatrek)
-                    .setImage(`${quatrek}`)
+                    .setURL(prandom)
+                    .setImage(`${prandom}`)
                     .setFooter(`demandé par ${message.member.user.tag}`)
                     .setColor('#D518C9')
             ]})
             CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
-    }
+        }
 }
 
-module.exports = RealQuatre4Command;
+module.exports = RealAssCommand;
