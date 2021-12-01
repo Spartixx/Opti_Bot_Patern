@@ -1,5 +1,6 @@
 const { Command } = require('discord-akairo');
 const { PREFIX } = require('../../config');
+const moment = require('moment');
 
 class BruhCommand extends Command {
     constructor() {
@@ -24,10 +25,12 @@ class BruhCommand extends Command {
     }
 
     async exec(message) {
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
         return message.channel.send({ embeds: [
             this.client.functions.embed()
                 .setTitle('***__Bruh__***')
-        ]})
+        ]}),
+        CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
     }
 }
 

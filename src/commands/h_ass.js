@@ -1,6 +1,7 @@
 const { Command } = require('discord-akairo');
 const { PREFIX } = require('../../config');
 const fetch = import('node-fetch');
+const moment = require('moment');
 
 class HentaiAssCommand extends Command {
     constructor() {
@@ -25,6 +26,7 @@ class HentaiAssCommand extends Command {
     }
 
     async exec(message, args) {
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
         const { NekoBot } = require("nekobot-api");
         const api = new NekoBot();
     
@@ -37,6 +39,7 @@ class HentaiAssCommand extends Command {
                     .setFooter(`demandé par ${message.member.user.tag}`)
                     .setColor('#D518C9')
             ]})
+            CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
             }
 }
 

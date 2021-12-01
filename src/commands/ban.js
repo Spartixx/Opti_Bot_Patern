@@ -32,13 +32,13 @@ class BanCommand extends Command {
     async exec(message, { member, reason }) {
 
         let args = message.content.split(' ')
-        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('911927775567425557')
         const pseudo = `${'```'}\n ${member.user.tag} ${'```'}`;
         const identifiant = `${'```'}\n ${member.user.id} ${'```'}`;
         const ban_reason = `${'```'}\n ${args[3]} ${'```'}`;
         const ban_channel = this.client.channels.cache.get('911719516050960414');
         const embed_ban_duration = `${'```'}\n ${args[2]} ${'```'}`;
         const ban_duration = parseInt(args[2])
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
 
         if(!reason){
             reason = 'Raison non justifiée.';
@@ -65,7 +65,9 @@ class BanCommand extends Command {
             .addField(':hourglass: Durée :hourglass:',embed_ban_duration, false )
             .setImage(member.user.displayAvatarURL())
             
-            await ban_channel.send({embeds: [embed]}).then(member.ban({ days: ban_duration, reason: args[3] })).catch(err =>{
+            await 
+            CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`),
+            ban_channel.send({embeds: [embed]}).then(member.ban({ days: ban_duration, reason: args[3] })).catch(err =>{
                 console.log('Une erreur est survenue pour le commande Ban', err)
             })
         }

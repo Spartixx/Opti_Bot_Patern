@@ -1,5 +1,6 @@
 const { Command } = require('discord-akairo');
 const { PREFIX } = require('../../config');
+const moment = require('moment');
 
 
 class SayCommand extends Command {
@@ -28,6 +29,7 @@ class SayCommand extends Command {
     }
 
     exec(message, args) {
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
         let words = message.content.split(' ')
         message.delete()
         if(words[1] === "false"){
@@ -37,7 +39,8 @@ class SayCommand extends Command {
         return message.channel.send({ embeds: [ 
             this.client.functions.embed() 
                 .setTitle(words[1])
-        ]})
+        ]}),
+        CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
     }
 }
 

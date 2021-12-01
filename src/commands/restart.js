@@ -1,5 +1,6 @@
 const { Command } = require('discord-akairo');
 const { PREFIX } = require('../../config');
+const moment = require('moment');
 
 class RestartCommand extends Command {
     constructor() {
@@ -16,7 +17,9 @@ class RestartCommand extends Command {
     }
 
     exec(message) {
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
         require('child_process').execSync('pm2 restart 0')
+        CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
     }
 }
 

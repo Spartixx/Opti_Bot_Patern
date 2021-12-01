@@ -1,5 +1,6 @@
 const { Command } = require('discord-akairo');
 const { PREFIX } = require('../../config');
+const moment = require('moment');
 
 class LatenceCommand extends Command {
     constructor() {
@@ -24,6 +25,7 @@ class LatenceCommand extends Command {
     }
 
     async exec(message) {
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
         const sent_message = await message.channel.send('Ping :');
         const timeStamp = message.editedTimestamp ? message.editedTimestamp : message.createdTimestamp;
         const bot_latency = `${'```'}\n ${Math.round(sent_message.createdTimestamp - timeStamp)}ms ${'```'}`;
@@ -38,6 +40,7 @@ class LatenceCommand extends Command {
             content: null,
             embeds: [embed]
         })
+        CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
     }
 }
 

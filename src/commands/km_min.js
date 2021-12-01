@@ -1,5 +1,6 @@
 const { Command } = require('discord-akairo');
 const { PREFIX } = require('../../config');
+const moment = require('moment');
 
 
 class km_minCommand extends Command {
@@ -28,6 +29,7 @@ class km_minCommand extends Command {
     }
 
     exec(message, args) {
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
         let nb = message.content.split(' ');
         let km = parseFloat(nb[1]);
         let min = parseInt(nb[2]);
@@ -43,6 +45,7 @@ class km_minCommand extends Command {
             console.log(nb[1], nb[2], km)
 
             message.channel.send(`${nb[1]} kilomètre en ${nb[2]} minutes est égal à ***__${R} km/h__***\n\n***Voici le calcul :***\n\n${nb[2]}/60 = ${C}\n1/${C} = ${C1}\n${C1}*${km} = ${R}`)
+            CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
         }
     }
 }

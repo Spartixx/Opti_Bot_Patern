@@ -1,5 +1,6 @@
 const { Command } = require('discord-akairo');
 const { PREFIX } = require('../../config');
+const moment = require('moment');
 
 
 class EditCommand extends Command {
@@ -28,6 +29,7 @@ class EditCommand extends Command {
     }
 
     exec(message, args) {
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
         let arg = message.content.split(' ')
         let to_edit = arg[1]
         let msg = arg[2]
@@ -35,6 +37,7 @@ class EditCommand extends Command {
         message.channel.messages.fetch(to_edit).then(m =>{
             m.edit(msg), message.delete()
         })
+        CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
     }
 }
 

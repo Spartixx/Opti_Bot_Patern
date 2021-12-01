@@ -1,6 +1,7 @@
 const { stripIndents } = require('common-tags');
 const { Command } = require('discord-akairo');
 const { BLUE_COLOR, PREFIX } = require('../../config');
+const moment = require('moment');
 
 
 class HelpCommand extends Command {
@@ -28,6 +29,7 @@ class HelpCommand extends Command {
     }
 
     async exec(message, args) {
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
         const command = args.command;
         const prefix = await this.handler.prefix(message);
 
@@ -59,7 +61,8 @@ class HelpCommand extends Command {
             this.client.functions.embed() 
                 .setTitle(`***Voici quelques infos sur la commande ${prefix}${command.aliases[0]}:***`)
                 .setDescription(`\`Utilité :\` ${command.description.content}\n\`Utilisation :\` ${command.description.usages}\n\`Raccourcis :\` ${command.description.raccourcis}`)
-        ]})
+        ]}),
+        CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
     }
 }
 

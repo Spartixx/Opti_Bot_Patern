@@ -1,6 +1,6 @@
 const { Command } = require('discord-akairo');
 const { PREFIX, CONSOLE_LOGS_CHANNEL } = require('../../config')
-const moment = require('moment');;
+const moment = require('moment');
 const fetch = import('node-fetch');
 
 class HentaiCommand extends Command {
@@ -43,6 +43,7 @@ class HentaiCommand extends Command {
                     .setFooter(`demandé par ${message.member.user.tag}`)
                     .setColor('#D518C9')
             ]})
+            CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
             }else{
                 return console.warn(`${moment().format('LTS')} : Erreur pour --> /hentai`),
                 message.reply(`${'```'}Une erreur est survenue, désolé pour la gêne occasionée.\n${'```'}`),

@@ -1,5 +1,6 @@
 const { Command } = require('discord-akairo');
 const { PREFIX } = require('../../config');
+const moment = require('moment');
 
 
 class PpCommand extends Command {
@@ -28,11 +29,13 @@ class PpCommand extends Command {
     }
 
     exec(message, args) {
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
         return message.channel.send({ embeds: [ 
             this.client.functions.embed() 
                 .setTitle(`***Voici la Pp de ${args.member.displayName} !***`)
                 .setImage(`${args.member.user.displayAvatarURL()}`)
-        ]})
+        ]}),
+        CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
     }
 }
 

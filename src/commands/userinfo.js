@@ -1,5 +1,6 @@
 const { Command } = require('discord-akairo');
 const { PREFIX } = require('../../config');
+const moment = require('moment');
 
 
 class UserInfoCommand extends Command {
@@ -28,6 +29,7 @@ class UserInfoCommand extends Command {
     }
 
     exec(message, args) {
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
         return message.channel.send({ embeds: [ 
             this.client.functions.embed() 
                 .setTitle(`***Voici quelques infos sur ${args.member.displayName} :***`)
@@ -37,7 +39,8 @@ class UserInfoCommand extends Command {
                     {name: 'Création du compte :', value: `Le ${args.member.user.createdAt}`, inline: true},
                     {name: 'Membre depuis :', value: `Le ${args.member.joinedAt}`, inline: true}
                 )
-        ]})
+        ]}),
+        CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
     }
 }
 

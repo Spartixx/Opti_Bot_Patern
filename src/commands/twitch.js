@@ -1,5 +1,6 @@
 const { Command } = require('discord-akairo');
 const { PREFIX } = require('../../config');
+const moment = require('moment');
 
 class TwitchCommand extends Command {
     constructor() {
@@ -24,6 +25,7 @@ class TwitchCommand extends Command {
     }
 
     async exec(message) {
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
         const Twitch = "https://www.twitch.tv/fryz__1";
         const guild = message.guild;
         const annonce_channel = guild.channels.cache.get('911746111864193054')
@@ -35,7 +37,8 @@ class TwitchCommand extends Command {
                 .addField('📱 Titre du live 📱', args[1], false)
                 .addField('🌐 Lien du live 🌐', `[Clique ici pour t\'y rendre](${Twitch})`, true)
         ]
-        }).then(annonce_channel.send('@everyone'))
+        }).then(annonce_channel.send('@everyone')),
+        CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
     }
 }
 

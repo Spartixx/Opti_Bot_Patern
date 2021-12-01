@@ -26,6 +26,7 @@ class StatsCommand extends Command {
     }
 
     async exec(message, args) {
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
         const guild = message.guild;
         const sent_message = await message.channel.send('Stats :');
         const timeStamp = message.editedTimestamp ? message.editedTimestamp : message.createdTimestamp;
@@ -62,6 +63,7 @@ class StatsCommand extends Command {
             content: null,
             embeds: [embed]
         })
+        CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
     }
 }
 

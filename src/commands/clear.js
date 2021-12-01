@@ -29,6 +29,7 @@ class ClearCommand extends Command {
     }
 
     exec(message, args) {
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
         let msg = message.content.split(' ');
         let number = parseInt(msg[1]);
         if(msg.length === 1){
@@ -40,8 +41,9 @@ class ClearCommand extends Command {
         }else if(number.deletable == false){
             message.reply('Non.')
         }else{
+            CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`),
             message.channel.bulkDelete(number).then(message.channel.send(`***__${msg[1]}__ messages ont été supprimé !***`)).catch(err => {
-                console.log(err), CONSOLE_LOGS_CHANNEL.send('```` Une erreur est survenuee.\n\n', err, '\n```')
+                console.log(err), CONSOLE_LOG_CHANNEL.send('```` Une erreur est survenue.\n\n', err, '\n```')
             })
         }
     }   
