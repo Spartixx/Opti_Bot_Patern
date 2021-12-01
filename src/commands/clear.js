@@ -1,5 +1,5 @@
 const { Command } = require('discord-akairo');
-const { PREFIX } = require('../../config');
+const { PREFIX, CONSOLE_LOGS_CHANNEL } = require('../../config');
 const moment = require('moment');
 
 
@@ -41,7 +41,7 @@ class ClearCommand extends Command {
             message.reply('Non.')
         }else{
             message.channel.bulkDelete(number).then(message.channel.send(`***__${msg[1]}__ messages ont été supprimé !***`)).catch(err => {
-                console.log(err), message.reply('Il y a des messages trop vieux :/')
+                console.log(err), CONSOLE_LOGS_CHANNEL.send('```` Une erreur est survenuee.\n\n', err, '\n```')
             })
         }
     }   

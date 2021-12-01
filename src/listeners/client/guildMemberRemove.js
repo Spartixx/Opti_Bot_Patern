@@ -11,7 +11,7 @@ class guildMemberRemoveListener extends Listener {
 
     async exec(member) {
         let leave_channel = this.client.channels.cache.get('910998531177865257')
-        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('911927775567425557')
+        let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
         let pseudo = `${'```'}\n${member.user.tag}${'```'}`
         let membres = `${'```'}\n${member.guild.memberCount.toLocaleString()}${'```'}`
         let member_id = `${'```'}\nid : ${member.user.id}${'```'}`

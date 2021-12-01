@@ -1,5 +1,5 @@
 const { Command } = require('discord-akairo');
-const { PREFIX } = require('../../config');
+const { PREFIX, CONSOLE_LOGS_CHANNEL } = require('../../config');
 const moment = require('moment');
 
 
@@ -35,31 +35,41 @@ class BanCommand extends Command {
         let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('911927775567425557')
         const pseudo = `${'```'}\n ${member.user.tag} ${'```'}`;
         const identifiant = `${'```'}\n ${member.user.id} ${'```'}`;
-        const ban_reason = `${'```'}\n ${reason} ${'```'}`;
+        const ban_reason = `${'```'}\n ${args[3]} ${'```'}`;
         const ban_channel = this.client.channels.cache.get('911719516050960414');
+        const embed_ban_duration = `${'```'}\n ${args[2]} ${'```'}`;
+        const ban_duration = parseInt(args[2])
 
-        if(!reason) reason = "Raison non spécifiée.";
-        if(member.id === "845741568388366366"){
-            return message.reply('***Je n\'est pas la permission de bannir cette personne !***')
+        if(!reason){
+            reason = 'Raison non justifiée.';
+
+        }else if(member.permissions == "ADMINISTRATOR"){
+            message.reply('***Je n\'est pas la permission de bannir cette personne !***')
+
+        }else if(args[2] > 7){
+            args[2] = 7, message.reply('***Le nombre de jours maximum définis par discord est 7, le nombre de jours à donc été changé pour 7.***')
+
+        }else if(member.bannable == false){
+            
+            message.reply('***Une erreur est survenue, ce membre ne peut être banni.***')
+
+        }else if(isNaN(args[2])){
+            message.reply(`${args[2]} n'est pas un chiffre !`)
+        }else{
+
+            const embed = this.client.functions.embed()
+            .setTitle(' ***:white_check_mark: Ban effectué ! :white_check_mark:*** ')
+            .addField(':robot: pseudo :robot:', pseudo, true)
+            .addField(':id: Identifiant :id:', identifiant, false)
+            .addField(':large_blue_diamond: Raison :large_blue_diamond:', ban_reason, false)
+            .addField(':hourglass: Durée :hourglass:',embed_ban_duration, false )
+            .setImage(member.user.displayAvatarURL())
+            
+            await ban_channel.send({embeds: [embed]}).then(member.ban({ days: ban_duration, reason: args[3] })).catch(err =>{
+                console.log('Une erreur est survenue pour le commande Ban', err)
+            })
         }
-        if(args[2] > 7) args[2] = 7, message.reply('Le nombre de jours maximum définis par discord est 7, le nombre de jours à donc été changé pour 7.')
-        else{
-        member ? member.ban({days: args[2], reason: args[3]}) : message.reply('***l\'utilisateur n\'existe pas !***');}
-
-        const ban_duration = `${'```'}\n ${args[2]} jours ${'```'}`;
-
-        const embed = this.client.functions.embed()
-        .setTitle(' ***✅ Ban effectué ! ✅*** ')
-        .addField('🤖 pseudo 🤖', pseudo, true)
-        .addField('🆔 Identifiant 🆔', identifiant, false)
-        .addField('🔷 Raison 🔷', ban_reason, false)
-        .addField('⌛ Durée ⌛',ban_duration, false )
-        .setImage(member.user.displayAvatarURL())
-
-    await ban_channel.send({embeds: [embed]})
-    .then(() => console.log(`${moment().format('LTS')} : Ban --> Message envoyé pour ${member.user.tag}`)).then(() => CONSOLE_LOG_CHANNEL.send(`${'```'}\n${moment().format('LTS')} : Ban --> Message envoyé pour ${member.user.tag} ${'```'}`))
-    .catch(() => console.log(`${moment().format('LTS')} : Ban --> Message /non/ envoyé pour ${member.user.tag}`))
     }
-}
+};
 
-module.exports = BanCommand;
+module.exports = BanCommand;                    

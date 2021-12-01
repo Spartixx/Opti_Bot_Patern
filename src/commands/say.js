@@ -28,11 +28,15 @@ class SayCommand extends Command {
     }
 
     exec(message, args) {
-        let words = message.content.slice(4)
+        let words = message.content.split(' ')
         message.delete()
+        if(words[1] === "false"){
+            return message.channel.send(words[2])
+        }
+        
         return message.channel.send({ embeds: [ 
             this.client.functions.embed() 
-                .setTitle(words)
+                .setTitle(words[1])
         ]})
     }
 }
