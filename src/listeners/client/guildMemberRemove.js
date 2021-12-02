@@ -25,7 +25,7 @@ class guildMemberRemoveListener extends Listener {
 
         await leave_channel.send({embeds: [embed]})
         .then(() => console.log(`${moment().format('LTS')} : guildMemberRemove --> Message envoyé pour ${member.user.tag}`)).then(() => CONSOLE_LOG_CHANNEL.send(`${'```'}\n${moment().format('LTS')} : guildMemberRemove --> Message envoyé pour ${member.user.tag} ${'```'}`))
-        .catch(() => console.log(`${moment().format('LTS')} : guildMemberRemove --> Message /non/ envoyé pour ${member.user.tag}`))
+        .catch(() => console.log(`${moment().add(6, 'hours').format('LTS')} : guildMemberRemove --> Message /non/ envoyé pour ${member.user.tag}`))
     }
 }
 

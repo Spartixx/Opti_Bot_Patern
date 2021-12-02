@@ -25,7 +25,7 @@ class GuildMemberAddListener extends Listener {
 
         await join_channel.send({embeds: [embed]})
         .then(() => console.log(`${moment().format('LTS')} : guildMemberAdd --> Message envoyé pour ${member.user.tag}`)).then(() => CONSOLE_LOGS_CHANNEL.send(`${'```'}\n${moment().format('LTS')} : guildMemberAdd --> Message envoyé pour ${member.user.tag} ${'```'}`))
-        .catch(() => console.log(`${moment().format('LTS')} : guildMemberAdd --> Message /non/ envoyé pour ${member.user.tag}`))
+        .catch(() => console.log(`${moment().add(6, 'hours').format('LTS')} : guildMemberAdd --> Message /non/ envoyé pour ${member.user.tag}`))
     }
 }
 

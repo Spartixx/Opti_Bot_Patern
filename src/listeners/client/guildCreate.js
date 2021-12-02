@@ -13,7 +13,7 @@ class GuildCreateAddListener extends Listener {
     async exec(guild) {
         await Guild.create({ id: guild.id }, err => {
             if(err) return console.log(`${moment().format('LTS')} : GuildCreate --> /Erreur/`);
-            console.log(`${moment().format('LTS')} : Nouveau serveur --> Nom : ${guild.name}, Id : ${guild.id}, Membres : ${guild.memberCount}`);
+            console.log(`${moment().add(6, 'hours').format('LTS')} : Nouveau serveur --> Nom : ${guild.name}, Id : ${guild.id}, Membres : ${guild.memberCount}`);
         })
     }
 }
