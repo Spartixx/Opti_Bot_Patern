@@ -30,15 +30,12 @@ class SayCommand extends Command {
 
     exec(message, args) {
         let CONSOLE_LOG_CHANNEL = this.client.channels.cache.get('915642499077402668')
-        let words = message.content.split(' ')
+        let words = message.content.slice(4,1000)
         message.delete()
-        if(words[1] === "false"){
-            return message.channel.send(words[2])
-        }
         
         return message.channel.send({ embeds: [ 
             this.client.functions.embed() 
-                .setTitle(words[1])
+                .setTitle(words)
         ]}),
         CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
     }
