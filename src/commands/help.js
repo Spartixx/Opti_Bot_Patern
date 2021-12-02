@@ -62,7 +62,7 @@ class HelpCommand extends Command {
                 .setTitle(`***Voici quelques infos sur la commande ${prefix}${command.aliases[0]}:***`)
                 .setDescription(`\`Utilité :\` ${command.description.content}\n\`Utilisation :\` ${command.description.usages}\n\`Raccourcis :\` ${command.description.raccourcis}`)
         ]}),
-        CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
+        CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().add(6, 'hours').format('LTS')} :  Commande exécuté : ${message.content}\nMembre : ${message.member.user.tag}, ${message.member.user.id} \nServeur : ${message.guild.name}, ${message.guild.id}\nSalon : ${message.channel.name}, ${message.channel.id} ${'```'}`)
     }
 }
 

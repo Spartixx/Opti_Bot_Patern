@@ -66,7 +66,7 @@ class BanCommand extends Command {
             .setImage(member.user.displayAvatarURL())
             
             await 
-            CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`),
+            CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().add(6, 'hours').format('LTS')} :  Commande exécuté : ${message.content}\nMembre : ${message.member.user.tag}, ${message.member.user.id} \nServeur : ${message.guild.name}, ${message.guild.id}\nSalon : ${message.channel.name}, ${message.channel.id} ${'```'}`),
             ban_channel.send({embeds: [embed]}).then(member.ban({ days: ban_duration, reason: args[3] })).catch(err =>{
                 console.log('Une erreur est survenue pour le commande Ban', err)
             })

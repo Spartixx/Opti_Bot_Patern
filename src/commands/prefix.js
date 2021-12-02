@@ -33,7 +33,7 @@ class PrefixCommand extends Command {
         if(!args.newPrefix) return message.channel.send(`Le Prefix actuel est : ${await this.handler.prefix(message)}`);
         await this.client.guildSettings.update(message.guild, { prefix: args.newPrefix })
         return message.channel.send(`Le prefix du serveur est maintenant ${args.newPrefix}`),
-        CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
+        CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().add(6, 'hours').format('LTS')} :  Commande exécuté : ${message.content}\nMembre : ${message.member.user.tag}, ${message.member.user.id} \nServeur : ${message.guild.name}, ${message.guild.id}\nSalon : ${message.channel.name}, ${message.channel.id} ${'```'}`)
     }
 }
 

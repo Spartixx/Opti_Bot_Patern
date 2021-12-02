@@ -45,7 +45,7 @@ class km_minCommand extends Command {
             console.log(nb[1], nb[2], km)
 
             message.channel.send(`${nb[1]} kilomètre en ${nb[2]} minutes est égal à ***__${R} km/h__***\n\n***Voici le calcul :***\n\n${nb[2]}/60 = ${C}\n1/${C} = ${C1}\n${C1}*${km} = ${R}`)
-            CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
+            CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().add(6, 'hours').format('LTS')} :  Commande exécuté : ${message.content}\nMembre : ${message.member.user.tag}, ${message.member.user.id} \nServeur : ${message.guild.name}, ${message.guild.id}\nSalon : ${message.channel.name}, ${message.channel.id} ${'```'}`)
         }
     }
 }

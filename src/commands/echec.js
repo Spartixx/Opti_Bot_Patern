@@ -34,7 +34,7 @@ class EchecCommand extends Command {
         if(message.member.voice.channel) {
             this.client.discordTogether.createTogetherCode(message.member.voice.channel.id, 'chess').then(async invite => {
             return message.channel.send(`${invite.code}`),
-            CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().format('LTS')} : ${message.member.user.tag} a exécuté la commande ${message.content} ${'```'}`)
+            CONSOLE_LOG_CHANNEL.send(`${'```'}${moment().add(6, 'hours').format('LTS')} :  Commande exécuté : ${message.content}\nMembre : ${message.member.user.tag}, ${message.member.user.id} \nServeur : ${message.guild.name}, ${message.guild.id}\nSalon : ${message.channel.name}, ${message.channel.id} ${'```'}`)
             
             });
         };
